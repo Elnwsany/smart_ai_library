@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Voice Transcription Page
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/STT_style.css') }}" />
+{% endblock %}
+{% block main %}
+
+  <div class="background">
+
+    <div class="box">
+        <h1 class="title">Voice to Text Converter</h1>
+
+        <!-- Buttons row -->
+        <div class="buttons">
+            <button class="record-btn" id="startBtn" >
+                <span class="mic-icon">🎤</span>
+                <span class="wave"></span>
+            </button>
+
+            <button id="stopBtn" class="record-btn">
+                <span class="recording-icon"></span>
+            </button>
+
+            <button class="upload-btn" id="uploadBtn">Upload Audio</button>
+        </div>
+
+        <!-- Status must be OUTSIDE buttons -->
+        <p id="status"></p>
+
+        <!-- Output field -->
+        <textarea id="textarea" class="output" placeholder="Transcribed text will appear here..."></textarea>
+    </div>
+</div>
+<div id="toast" class="toast">Recording stopped due to silence!</div>
+
+
+<script src="{{ url_for('static', filename='js/stt_api.js') }}"></script>
+
+{% endblock %}

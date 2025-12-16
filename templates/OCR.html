@@ -1,0 +1,40 @@
+
+{% extends "layout.html" %}
+
+{% block title %}
+    OCR
+{% endblock %}
+{% block link %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/OCR_style.css') }}" />
+{% endblock %}
+{% block main %}
+
+<div class="background">
+    <div class="upload-box" id="dropArea">
+        <p>Drop Image Here</p>
+        <button id="uploadBtn">Choose Image</button>
+        <input type="file" id="fileInput" accept="image/*">
+    </div>
+
+
+    <div class="gallery" id="gallery"></div>
+   
+    <div id="loader">
+    <div class="loader-bar">
+        <div id="loaderFill"></div>
+    </div>
+    <p>Processing...</p>
+    </div>
+
+
+    <div class="bottom-btn-box" id="bottomActions" style="display:none;">
+        <button id="processBtn">Process Images</button>
+    </div>
+
+    <div id="ocrResults" style="margin-top:20px;"></div>
+
+    <div class="preview" id="preview"></div>
+</div>
+<script src="{{ url_for('static', filename='js/OCR_api.js') }}"></script>
+
+{% endblock %}

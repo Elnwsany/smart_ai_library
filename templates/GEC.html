@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    GEC
+{% endblock %}
+{% block link %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/GEC_style.css') }}" />
+{% endblock %}
+{% block main %}
+<div class="body">
+    <div class="box">
+        <h2> Text processing</h2>
+
+
+        <!-- Input Box -->
+        <textarea id="inputText" placeholder="Write your text here..."></textarea>
+
+
+        <!-- File Input -->
+        <input type="file" id="fileInput" accept=".txt" />
+
+
+        <!-- Process Button -->
+        <button class="btn" id="processBtn">process</button>
+        <!-- loader wrapper -->
+        <div class="loader-wrapper" id="loaderWrapper" aria-hidden="true">
+            <div class="loader" id="loader" role="status" aria-label="Loading"></div>
+        </div>
+
+
+        <!-- Results Box -->
+        <div id="result-box"></div>
+        <!-- Download + Copy Buttons -->
+        <div class="btn-group" id="actions">
+            <button class="btn-g" onclick="downloadTxt()">Download</button>
+            <button id="copy" class="btn-g" onclick="copyText()">Copy</button>
+        </div>
+        
+
+    </div>
+</div>
+<script src="{{ url_for('static', filename='js/GEC_api.js') }}"></script>
+{% endblock %}
