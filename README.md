@@ -44,16 +44,20 @@ python -m venv venv
 venv\Scripts\activate          # On Windows
 source venv/bin/activate       # On Linux/Mac
 ```
-4. Install dependencies:
+4. Upgrading pip:
+```bash
+python -m pip install --upgrade pip
+```
+5. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-5. Run the project:
+6. Run the project:
 ```bash
 python app.py
 ```
-or you can run it by click on **run-server.bat**
+**The initial run may take some time due to the loading of AI models.**
 
 > ⚠️ **Warning**
 >  
@@ -99,13 +103,6 @@ or you can run it by click on **run-server.bat**
 4. Commit your changes (`git commit -m "Add some feature"`).  
 5. Push to the branch (`git push origin feature-name`).  
 6. Open a Pull Request.
-
----
-
-## License
-
-This project is licensed under the MIT License.  
-See the [LICENSE](LICENSE) file for details.
 
 ---
 

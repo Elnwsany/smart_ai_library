@@ -24,14 +24,14 @@ startBtn.onclick = async () => {
 
     mediaRecorder.onstop = async () => {
       stopMicFeedback();
-      const blob = new Blob(audioChunks, { type: "audio/wav" });
+      const blob = new Blob(audioChunks, { type: mediaRecorder.mimeType});
       stream.getTracks().forEach(track => track.stop());
 
       status.innerText = "Uploading...";
 
       try {
         const formData = new FormData();
-        formData.append("file", blob, "recording.wav");
+        formData.append("file", blob);
 
         const response = await fetch("/stt", { method: "POST", body: formData });
         const data = await response.json();
@@ -63,7 +63,7 @@ startBtn.onclick = async () => {
 stopBtn.onclick = () => {
   mediaRecorder.stop();
 
-  // 🔵 هنا العكس:
+ 
     startBtn.style.display = 'block';
     stopBtn.style.display = 'none';
     
@@ -86,7 +86,7 @@ uploadBtn.addEventListener("click", async (e) => {
         
         // كود الرفع هنا
         const formData = new FormData();
-        const newFile = new File([file], "recording.wav", {
+        const newFile = new File([file], file.name, {
             type: file.type,
             lastModified: file.lastModified
         });
@@ -95,7 +95,7 @@ uploadBtn.addEventListener("click", async (e) => {
         
         status.innerText = "Uploading..."; // (14) نغيّر حالة الواجهة
         try {
-            const response = await fetch("http://127.0.0.1:5000/stt", {
+            const response = await fetch("/stt", {
                 method: "POST",
                 body: formData
             });
