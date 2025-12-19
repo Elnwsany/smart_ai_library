@@ -90,7 +90,12 @@ python app.py
 
 - **GEC (Grammatical Error Correction)**:  
   Enter text, click **Process**, and the corrected text will appear in a separate field.
+---
 
+## 🎥 Project Demo
+
+You can watch a video demonstration of the project here:  
+https://www.youtube.com/watch?v=YOUR_VIDEO_LINK
 
 
 ---
